@@ -6,8 +6,8 @@
 
 using namespace std;
 
-ifstream f("dijkstra2.in");
-ofstream g("dijkstra2.out");
+ifstream f("test.in");
+ofstream g("test.out");
 
 int main(void)
 {
@@ -79,5 +79,7 @@ int main(void)
         else
             g << cost[i] << " ";
 
+    f.close();
+    g.close();
     return 0;
 }

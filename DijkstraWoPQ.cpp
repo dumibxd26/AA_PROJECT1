@@ -5,8 +5,8 @@
 
 using namespace std;
 
-ifstream f("input.txt");
-ofstream g("output.txt");
+ifstream f("test.txt");
+ofstream g("test.txt");
 
 int main(void) {
 
@@ -83,5 +83,7 @@ int main(void) {
         }
     }
 
+    f.close();
+    g.close();
     return 0;
 }

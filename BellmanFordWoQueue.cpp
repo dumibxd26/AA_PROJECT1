@@ -7,15 +7,15 @@
 
 using namespace std;
 
-ifstream f("dijkstra2.in");
-ofstream g("dijkstra2.out");
+ifstream f("test2.in");
+ofstream g("test.out");
 
 int main(void)
 {
     vector<tuple<int,int,int>> edges;
     vector<int> cost;
 
-    int vertices, edges_nr = 0, source;
+    int vertices, edges_nr, source;
 
     f >> vertices >> edges_nr >> source;
 
@@ -23,8 +23,7 @@ int main(void)
 
     // Read all the edges from the input
     for(int i = 0; i < edges_nr; i++) {
-        edges_nr++;
-
+        f >> start_node >> end_node >> weight;
         edges.push_back(make_tuple(start_node, end_node , weight));
     }
 
@@ -36,7 +35,8 @@ int main(void)
     cost[source] = 0;
 
     // After each step(distance from the source) we check if we can improve the cost of the nodes
-    for(int i = 0; i < vertices - 1; i++) {
+    int i;
+    for(i = 0; i < vertices; i++) {
 
         int changed = 0;
         
@@ -46,7 +46,7 @@ int main(void)
             int end_node = get<1>(edges[j]);
             int weight = get<2>(edges[j]);
 
-            if (cost[start_node] + weight < cost[end_node]) {
+            if (cost[start_node] != INF && cost[start_node] + weight < cost[end_node]) {
                 cost[end_node] = cost[start_node] + weight;
                 changed = 1;
             }
@@ -58,17 +58,22 @@ int main(void)
         }
     }
 
-    // Check if there is a negative cycle
-    for(int i = 0; i < edges_nr;  i++) {
-        int start_node = get<0>(edges[i]);
-        int end_node = get<1>(edges[i]);
-        int weight = get<2>(edges[i]);
-
-        if (cost[start_node] + weight < cost[end_node]) {
-            g << "Negative cycle detected";
-            return 0;
-        }
+    if (i == vertices) {
+        g << "Negative cycle detected!";
+        return 0;
     }
+
+    // // Check if there is a negative cycle
+    // for(int i = 0; i < edges_nr;  i++) {
+    //     int start_node = get<0>(edges[i]);
+    //     int end_node = get<1>(edges[i]);
+    //     int weight = get<2>(edges[i]);
+
+    //     if (cost[start_node] != INF && cost[start_node] + weight < cost[end_node]) {
+    //         g << "Negative cycle detected!";
+    //         return 0;
+    //     }
+    // }
 
     for(int i = 0; i < vertices; i++) {
         if (cost[i] == INF) {
@@ -77,4 +82,8 @@ int main(void)
             g << cost[i] << " ";
         }
     }
+
+    f.close();
+    g.close();
+    return 0;   
 }

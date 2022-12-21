@@ -7,8 +7,8 @@
 
 using namespace std;
 
-ifstream f("input.txt");
-ofstream g("output.txt");
+ifstream f("test.txt");
+ofstream g("test.txt");
 
 auto cmp = [] (pair<int,int> x, pair<int,int> y)
 {
@@ -89,5 +89,7 @@ int main(void)
         }
     }
 
+    f.close();
+    g.close();
     return 0;
 }
