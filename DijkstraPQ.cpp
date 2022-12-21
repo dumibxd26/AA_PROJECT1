@@ -10,16 +10,16 @@ using namespace std;
 ifstream f("test.txt");
 ofstream g("test.txt");
 
-auto cmp = [] (pair<int,int> x, pair<int,int> y)
+auto cmp = [] (pair<int,long long> x, pair<int,long long> y)
 {
     return x.second > y.second;
 };
 
 int main(void)
 {
-    priority_queue <pair<int,int>, vector<pair<int,int>>, decltype(cmp)> pq(cmp);
+    priority_queue <pair<int,long long>, vector<pair<int,long long>>, decltype(cmp)> pq(cmp);
     vector <vector<pair<int,int>>> graph;
-    vector<int> cost;
+    vector<long long> cost;
     vector<bool> visited;
 
     int vertices, edges , source;
@@ -32,7 +32,8 @@ int main(void)
 
     // initialise the graph
     for(int i = 0; i < edges; i++) {
-        int start_node, end_node, weight;
+        int start_node, end_node;
+        long long weight;
         f >> start_node >> end_node >> weight;
 
         // If the graph is undirected, the tests must include both directions of the edge
@@ -47,7 +48,7 @@ int main(void)
     // initialise the priority queue with the distance from the first node to its neighbors
     for(int i = 0; i < graph[source].size(); i++) {
         int next_node = graph[source][i].first;
-        int weight = graph[source][i].second;
+        long long weight = graph[source][i].second;
         
         cost[next_node] = weight;
         pq.push({next_node, weight});
@@ -59,7 +60,7 @@ int main(void)
     while(!pq.empty()) {
         // get the node with the smallest distance yet(top of the priority queue)
         int current_node = pq.top().first;
-        int weight = pq.top().second;
+        long long weight = pq.top().second;
         pq.pop();
 
         // if it was already visited, skip it
@@ -72,7 +73,7 @@ int main(void)
         // update the distances to the neighbors of the current node
         for(int i = 0; i < graph[current_node].size(); i++) {
             int next_node = graph[current_node][i].first;
-            int weight = graph[current_node][i].second;
+            long long weight = graph[current_node][i].second;
 
             if (cost[next_node] > cost[current_node] + weight) {
                 cost[next_node] = cost[current_node] + weight;

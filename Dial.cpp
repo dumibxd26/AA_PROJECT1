@@ -12,18 +12,19 @@ ofstream g("test.out");
 int main(void)
 {
     vector <vector<pair<int,int>>> graph;
-    vector<vector<int>> buckets;
-    vector<int> cost;
+    vector<vector<long long>> buckets;
+    vector<long long> cost;
 
     int vertices, edges , source;
-    int biggest_cost = -INF;
+    long long biggest_cost = -INF;
 
     f >> vertices >> edges >> source;
 
     graph.resize(vertices);
     cost.resize(vertices);
 
-    int start_node, end_node, weight;
+    int start_node, end_node;
+    long long weight;
 
     for(int i = 0; i < edges; i++) {
 
@@ -62,7 +63,7 @@ int main(void)
 
             for(int j = 0; j < graph[current_node].size(); j++) {
                 int next_node = graph[current_node][j].first;
-                int weight = graph[current_node][j].second;
+                long long weight = graph[current_node][j].second;
 
                 if (cost[current_node] + weight < cost[next_node]) {
                     cost[next_node] = cost[current_node] + weight;

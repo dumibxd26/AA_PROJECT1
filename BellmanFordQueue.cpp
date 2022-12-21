@@ -14,7 +14,7 @@ int main(void) {
     vector<vector<pair<int,int>>> graph;
     queue<int> current_nodes;
     vector<bool> in_queue;
-    vector<int> cost;
+    vector<long long> cost;
 
     int vertices, edges_nr, source;
 
@@ -24,7 +24,8 @@ int main(void) {
     in_queue.resize(vertices);
     graph.resize(vertices);
 
-    int start_node, end_node, weight;
+    int start_node, end_node;
+    long long weight;
 
     // initialise the graph
     for(int i = 0; i < edges_nr; i++) {
@@ -52,7 +53,7 @@ int main(void) {
         // if the neighbor is not in the queue, push it
         for (int i = 0; i < graph[current_node].size(); i++) {
             int next_node = graph[current_node][i].first;
-            int weight = graph[current_node][i].second;
+            long long weight = graph[current_node][i].second;
 
             if (cost[current_node] != INF && cost[current_node] + weight < cost[next_node]) {
                 cost[next_node] = cost[current_node] + weight;

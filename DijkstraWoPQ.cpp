@@ -11,7 +11,7 @@ ofstream g("test.txt");
 int main(void) {
 
     vector <vector<pair<int,int>>> graph;
-    vector<int> cost;
+    vector<long long> cost;
     vector<bool> visited;
 
     int vertices, edges , source;
@@ -20,7 +20,8 @@ int main(void) {
     graph.resize(vertices);
     cost.resize(vertices);
     visited.resize(vertices);
-    int start_node, end_node, weight;
+    int start_node, end_node;
+    long long weight;
 
      // initialise the graph
     for(int i = 0; i < edges; i++) {
@@ -39,7 +40,7 @@ int main(void) {
     // set the cost of the neighbors of the source
     for(int i = 0; i < graph[source].size(); i++) {
         int next_node = graph[source][i].first;
-        int weight = graph[source][i].second;
+        long long weight = graph[source][i].second;
         
         cost[next_node] = weight;
     }
@@ -51,7 +52,7 @@ int main(void) {
     // must be visited at a time => so * (vertices - 1) operations
     for(int step = 0; step < vertices - 1; step++) {
         
-        int min_distance =  INF;
+        long long min_distance =  INF;
         int current_node = -1;
     
     // Find the node with the smallest distance yet
@@ -67,7 +68,7 @@ int main(void) {
     // Update the cost of the neighbors of the current node
         for(int i = 0; i < graph[current_node].size(); i++) {
             int next_node = graph[current_node][i].first;
-            int weight = graph[current_node][i].second;
+            long long weight = graph[current_node][i].second;
 
             if (!visited[next_node] && cost[current_node] + weight < cost[next_node]) {
                 cost[next_node] = cost[current_node] + weight;

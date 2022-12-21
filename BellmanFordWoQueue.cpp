@@ -12,14 +12,15 @@ ofstream g("test.out");
 
 int main(void)
 {
-    vector<tuple<int,int,int>> edges;
-    vector<int> cost;
+    vector<tuple<int,int,long long>> edges;
+    vector<long long> cost;
 
     int vertices, edges_nr, source;
 
     f >> vertices >> edges_nr >> source;
 
-    int start_node, end_node, weight;
+    int start_node, end_node;
+    long long weight;
 
     // Read all the edges from the input
     for(int i = 0; i < edges_nr; i++) {
@@ -44,7 +45,7 @@ int main(void)
         for(int j = 0; j < edges_nr; j++) {
             int start_node = get<0>(edges[j]);
             int end_node = get<1>(edges[j]);
-            int weight = get<2>(edges[j]);
+            long long weight = get<2>(edges[j]);
 
             if (cost[start_node] != INF && cost[start_node] + weight < cost[end_node]) {
                 cost[end_node] = cost[start_node] + weight;
