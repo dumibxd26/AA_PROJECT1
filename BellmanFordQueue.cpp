@@ -6,10 +6,10 @@
 
 using namespace std;
 
-ifstream f("test2.in");
-ofstream g("test.out");
+int main(int argc, char *argv[]) {
 
-int main(void) {
+    ifstream f(argv[1]);
+    ofstream g(argv[2]);
 
     vector<vector<pair<int,int>>> graph;
     queue<int> current_nodes;
@@ -20,9 +20,9 @@ int main(void) {
 
     f >> vertices >> edges_nr >> source;
 
-    cost.resize(vertices);
-    in_queue.resize(vertices);
-    graph.resize(vertices);
+    cost.resize(vertices + 1);
+    in_queue.resize(vertices + 1);
+    graph.resize(vertices + 1);
 
     int start_node, end_node;
     long long weight;
@@ -78,7 +78,7 @@ int main(void) {
 
     for (int i = 0; i < vertices; i++) {
         if (cost[i] == INF) {
-            g << -1 << " ";
+            g << "NaN" << " ";
         } else {
             g << cost[i] << " ";
         }

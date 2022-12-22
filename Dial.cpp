@@ -1,17 +1,16 @@
 #include <fstream>
 #include <vector>
 
-
 #define INF 0x3f3f3f3f
 
 using namespace std;
 
-ifstream f("test.in");
-ofstream g("test.out");
+int main(int argc, char *argv[]) {
 
-int main(void)
-{
-    vector <vector<pair<int,int>>> graph;
+    ifstream f(argv[1]);
+    ofstream g(argv[2]);
+
+    vector <vector<pair<int,long long>>> graph;
     vector<vector<long long>> buckets;
     vector<long long> cost;
 
@@ -20,8 +19,8 @@ int main(void)
 
     f >> vertices >> edges >> source;
 
-    graph.resize(vertices);
-    cost.resize(vertices);
+    graph.resize(vertices + 1);
+    cost.resize(vertices + 1);
 
     int start_node, end_node;
     long long weight;
@@ -46,7 +45,7 @@ int main(void)
     // add the neighbors of the source to the buckets
     for(int i = 0; i < graph[source].size(); i++) {
         int next_node = graph[source][i].first;
-        int weight = graph[source][i].second;
+        long long weight = graph[source][i].second;
 
         cost[next_node] = weight;
         

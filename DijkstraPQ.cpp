@@ -7,16 +7,16 @@
 
 using namespace std;
 
-ifstream f("test.txt");
-ofstream g("test.txt");
-
 auto cmp = [] (pair<int,long long> x, pair<int,long long> y)
 {
     return x.second > y.second;
 };
 
-int main(void)
-{
+int main(int argc, char *argv[]) {
+
+    ifstream f(argv[1]);
+    ofstream g(argv[2]);
+
     priority_queue <pair<int,long long>, vector<pair<int,long long>>, decltype(cmp)> pq(cmp);
     vector <vector<pair<int,int>>> graph;
     vector<long long> cost;
@@ -26,9 +26,9 @@ int main(void)
 
     f >> vertices >> edges >> source;
 
-    graph.resize(vertices);
-    cost.resize(vertices);
-    visited.resize(vertices);
+    graph.resize(vertices + 1);
+    cost.resize(vertices + 1);
+    visited.resize(vertices + 1);
 
     // initialise the graph
     for(int i = 0; i < edges; i++) {

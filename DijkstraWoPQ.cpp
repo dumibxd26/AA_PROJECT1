@@ -5,21 +5,21 @@
 
 using namespace std;
 
-ifstream f("test.txt");
-ofstream g("test.txt");
+int main(int argc, char *argv[]) {
 
-int main(void) {
+    ifstream f(argv[1]);
+    ofstream g(argv[2]);
 
-    vector <vector<pair<int,int>>> graph;
+    vector <vector<pair<int,long long>>> graph;
     vector<long long> cost;
     vector<bool> visited;
 
     int vertices, edges , source;
     f >> vertices >> edges >> source;
 
-    graph.resize(vertices);
-    cost.resize(vertices);
-    visited.resize(vertices);
+    graph.resize(vertices + 1);
+    cost.resize(vertices + 1);
+    visited.resize(vertices + 1);
     int start_node, end_node;
     long long weight;
 
@@ -52,15 +52,19 @@ int main(void) {
     // must be visited at a time => so * (vertices - 1) operations
     for(int step = 0; step < vertices - 1; step++) {
         
-        long long min_distance =  INF;
+        long long min_distance = INF;
         int current_node = -1;
     
     // Find the node with the smallest distance yet
         for(int i = 0; i < vertices; i++) {
-            if (!visited[i] && cost[i] <= min_distance) {
+            if (!visited[i] && cost[i] < min_distance) {
                 min_distance = cost[i];
                 current_node = i;
             }
+        }
+
+        if (current_node == -1) {
+            break;
         }
 
         visited[current_node] = true;
@@ -80,7 +84,7 @@ int main(void) {
         if (visited[i]) {
             g << cost[i] << " ";
         } else {
-            g << "NaN";
+            g << "NaN" << " ";
         }
     }
 

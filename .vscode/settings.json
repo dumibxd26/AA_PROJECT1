@@ -3,6 +3,9 @@
         "vector": "cpp",
         "utility": "cpp",
         "random": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "ostream": "cpp",
+        "atomic": "cpp",
+        "iosfwd": "cpp"
     }
 }

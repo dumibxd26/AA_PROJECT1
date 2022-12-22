@@ -7,11 +7,11 @@
 
 using namespace std;
 
-ifstream f("test2.in");
-ofstream g("test.out");
+int main(int argc, char *argv[]) {
 
-int main(void)
-{
+    ifstream f(argv[1]);
+    ofstream g(argv[2]);
+
     vector<tuple<int,int,long long>> edges;
     vector<long long> cost;
 
@@ -28,8 +28,8 @@ int main(void)
         edges.push_back(make_tuple(start_node, end_node , weight));
     }
 
-    cost.resize(edges_nr);
-    for(int i = 0; i < edges_nr; i++) {
+    cost.resize(vertices + 1);
+    for(int i = 0; i < vertices; i++) {
         cost[i] = INF;
     }
 
@@ -40,7 +40,6 @@ int main(void)
     for(i = 0; i < vertices; i++) {
 
         int changed = 0;
-        
         // Edge relaxation
         for(int j = 0; j < edges_nr; j++) {
             int start_node = get<0>(edges[j]);
