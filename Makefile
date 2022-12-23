@@ -26,12 +26,12 @@ build:
 	g++ DijkstraWoPQ.cpp -o DijkstraWoPQ.exe
 	g++ Dial.cpp -o Dial.exe
 	g++ runBFQ.cpp -o runBFQ.exe
-	g++ runBFQWOQ.cpp -o runBFQWOQ.exe
+	g++ runBFWOQ.cpp -o runBFWOQ.exe
 	g++ runDial.cpp -o runDial.exe
 	g++ runDijkstraPQ.cpp -o runDijkstraPQ.exe
 	g++ runDijkstraWoPQ.cpp -o runDijkstraWoPQ.exe
 
 clean: 
-	rm -rf *.exe
+	rm BellmanFordQueue.exe
 
 .PHONY: clean
