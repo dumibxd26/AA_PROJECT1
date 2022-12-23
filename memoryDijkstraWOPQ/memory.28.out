@@ -3,3 +3,24 @@
 ==25071== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
 ==25071== Command: ./DijkstraWoPQ in/test28.in test.out
 ==25071== 
+==25071== 
+==25071== Process terminating with default action of signal 1 (SIGHUP)
+==25071==    at 0x10A082: std::operator+(std::_Bit_iterator const&, long) (in /home/dumibxd/Desktop/AA_PROJECT1/DijkstraWoPQ)
+==25071==    by 0x10A057: std::_Bit_iterator::operator[](long) const (in /home/dumibxd/Desktop/AA_PROJECT1/DijkstraWoPQ)
+==25071==    by 0x10AAF7: std::vector<bool, std::allocator<bool> >::operator[](unsigned long) (in /home/dumibxd/Desktop/AA_PROJECT1/DijkstraWoPQ)
+==25071==    by 0x1097C2: main (in /home/dumibxd/Desktop/AA_PROJECT1/DijkstraWoPQ)
+==25071== 
+==25071== HEAP SUMMARY:
+==25071==     in use at exit: 14,436,168 bytes in 32,757 blocks
+==25071==   total heap usage: 165,462 allocs, 132,705 frees, 25,045,784 bytes allocated
+==25071== 
+==25071== LEAK SUMMARY:
+==25071==    definitely lost: 0 bytes in 0 blocks
+==25071==    indirectly lost: 0 bytes in 0 blocks
+==25071==      possibly lost: 0 bytes in 0 blocks
+==25071==    still reachable: 14,436,168 bytes in 32,757 blocks
+==25071==         suppressed: 0 bytes in 0 blocks
+==25071== Rerun with --leak-check=full to see details of leaked memory
+==25071== 
+==25071== For lists of detected and suppressed errors, rerun with: -s
+==25071== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

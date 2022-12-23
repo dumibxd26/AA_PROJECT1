@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     ofstream g(argv[2]);
 
     priority_queue <pair<int,long long>, vector<pair<int,long long>>, decltype(cmp)> pq(cmp);
-    vector <vector<pair<int,int>>> graph;
+    vector <vector<pair<int,long long>>> graph;
     vector<long long> cost;
     vector<bool> visited;
 

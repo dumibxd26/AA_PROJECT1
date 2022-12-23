@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     ofstream g(argv[2]);
 
     vector <vector<pair<int,long long>>> graph;
-    vector<vector<long long>> buckets;
+    vector<vector<int>> buckets;
     vector<long long> cost;
 
     int vertices, edges , source;
