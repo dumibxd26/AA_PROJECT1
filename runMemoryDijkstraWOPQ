@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# write a for loop in bash
-for i in {7..32}
-do
-
-    (valgrind ./DijkstraWoPQ in/test$i.in test.out) 2> memoryDijkstraWOPQ/memory.$i.out
-done
