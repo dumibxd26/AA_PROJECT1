@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# write a for loop in bash
+for i in {1..32}
+do
+
+    (valgrind ./BFQ in/test$i.in test.out) 2> memoryBFQ/memory.$i.out
+done

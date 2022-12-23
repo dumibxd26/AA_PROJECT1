@@ -21,7 +21,7 @@ run-best:
 
 build:
 	g++ BellmanFordQueue.cpp -o BellmanFordQueue.exe
-	g++ BellmanFOrdWoQueue.cpp -o BellmanFordWoQueue.exe
+	g++ BellmanFOrdWoQueue.cpp -o BellmanFOrdWoQueue.exe
 	g++ DijkstraPQ.cpp -o DijkstraPQ.exe
 	g++ DijkstraWoPQ.cpp -o DijkstraWoPQ.exe
 	g++ Dial.cpp -o Dial.exe
@@ -32,6 +32,6 @@ build:
 	g++ runDijkstraWoPQ.cpp -o runDijkstraWoPQ.exe
 
 clean:
-	rm BellmanFordQueue.exe BellmanFordWoQueue.exe Dial.exe DijkstraPQ.exe DijkstraWoPQ.exe runBFQ.exe runBFWOQ.exe runDial.exe runDijkstraPQ.exe runDijkstraWoPQ.exe
+	rm BellmanFordQueue.exe
 
 .PHONY: clean

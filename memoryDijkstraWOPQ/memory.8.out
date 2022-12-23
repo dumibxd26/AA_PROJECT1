@@ -1,0 +1,14 @@
+==16318== Memcheck, a memory error detector
+==16318== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==16318== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==16318== Command: ./DijkstraWoPQ in/test8.in test.out
+==16318== 
+==16318== 
+==16318== HEAP SUMMARY:
+==16318==     in use at exit: 0 bytes in 0 blocks
+==16318==   total heap usage: 4,481 allocs, 4,481 frees, 401,104 bytes allocated
+==16318== 
+==16318== All heap blocks were freed -- no leaks are possible
+==16318== 
+==16318== For lists of detected and suppressed errors, rerun with: -s
+==16318== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

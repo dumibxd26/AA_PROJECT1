@@ -1,0 +1,14 @@
+==15310== Memcheck, a memory error detector
+==15310== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==15310== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==15310== Command: ./DijkstraPQ in/test16.in test.out
+==15310== 
+==15310== 
+==15310== HEAP SUMMARY:
+==15310==     in use at exit: 0 bytes in 0 blocks
+==15310==   total heap usage: 3,686 allocs, 3,686 frees, 495,064 bytes allocated
+==15310== 
+==15310== All heap blocks were freed -- no leaks are possible
+==15310== 
+==15310== For lists of detected and suppressed errors, rerun with: -s
+==15310== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

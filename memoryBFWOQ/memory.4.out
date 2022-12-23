@@ -1,0 +1,14 @@
+==14875== Memcheck, a memory error detector
+==14875== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==14875== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==14875== Command: ./BFWOQ in/test4.in test.out
+==14875== 
+==14875== 
+==14875== HEAP SUMMARY:
+==14875==     in use at exit: 0 bytes in 0 blocks
+==14875==   total heap usage: 17 allocs, 17 frees, 157,088 bytes allocated
+==14875== 
+==14875== All heap blocks were freed -- no leaks are possible
+==14875== 
+==14875== For lists of detected and suppressed errors, rerun with: -s
+==14875== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
